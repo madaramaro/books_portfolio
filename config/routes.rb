@@ -30,5 +30,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts, only: [:index]
+  resources :posts, only: [:index, :show]
 end

@@ -8,7 +8,7 @@
 
 <% @posted_favorite_lists.each do |list| %>
   <h2>
-    <%= list.name %> 
+     <%= link_to list.name, post_path(list) %> 
     (Posted by: <%= list.user.name %> 
     <% unless current_user.following.include?(list.user) %>
       <%= link_to 'Follow', follow_user_path(list.user), method: :post %>
@@ -17,6 +17,7 @@
     <% end %> 
     at <%= list.created_at.strftime('%Y-%m-%d %H:%M:%S') %>)
   </h2>
+  <p><strong>リストの説明:</strong> <%= list.description %></p>
   <ul>
     <% list.books.each do |book| %>
       <li>

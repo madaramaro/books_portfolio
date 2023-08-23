@@ -7,5 +7,9 @@ class PostsController < ApplicationController
         @posted_favorite_lists = @posted_favorite_lists.where("name LIKE ?", "%#{params[:search]}%")
       end
     end
+
+    def show
+      @favorite_list = FavoriteList.find(params[:id])
+    end
   end
   
